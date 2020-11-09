@@ -5,6 +5,7 @@
 #pragma warning( disable : 4244 )
 
 #include <vector>
+#include <string>
 #include "MyVector3d.h"
 
 #include <windows.h>
@@ -33,9 +34,6 @@ class OpenGL
 	HGLRC g_hRC;
 	int width, height;
 	
-
-	
-
 
 public:
 	//функции рендера
@@ -128,6 +126,7 @@ public:
 		size = width * 3 + width % 4;
 		size = size * height;
 		nBytesRead = fileh.bfOffBits;
+		*arr = new  RGBTRIPLE[size];
 		*arr = (RGBTRIPLE *)malloc(size);
 
 		while (read_size < size)
